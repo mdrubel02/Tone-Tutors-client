@@ -1,0 +1,17 @@
+.colored_line {
+    display: flex;
+    align-items: center;
+    justify-content: stretch;
+    margin-bottom: 6px;
+}
+.colored_line div {
+    height: 5px;
+    border-radius: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: #FFD3BD;
+    width: 100%;
+}
+.colored_line div:nth-child(2n) {
+    background: #B3D0FD;
+}

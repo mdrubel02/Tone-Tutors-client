@@ -106,12 +106,11 @@ const Header = () => {
                                 <li>
                                     <Link
                                         to="/login"
+                                        className="border border-yellow inline-flex items-center justify-center py-2 px-6 font-medium tracking-wide  transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none text-white hover:bg-[#ffffff36]"
                                         aria-label="Sign up"
                                         title="Sign up"
                                     >
-                                        <button className="btn btn-circle btn-outline">
-                                            <AiOutlineUserAdd />
-                                        </button>
+                                        login
                                     </Link>
                                 </li>
                         }
@@ -186,7 +185,7 @@ const Header = () => {
                                                             title="Sign up"
                                                         >
                                                             <button className="btn btn-circle btn-outline">
-                                                                <AiOutlineUserAdd />
+                                                            <AiOutlineUserAdd />
                                                             </button>
                                                         </Link>
                                                     </li>

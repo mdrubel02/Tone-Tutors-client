@@ -9,7 +9,7 @@ export default {
       {
         'light': {
            'primary' : '#304566',
-           'primary-focus' : '#6EC1E4',
+           'primary-focus' : '#4506cb',
            'primary-content' : '#ffffff',
 
            'secondary' : '#FFA1AC',

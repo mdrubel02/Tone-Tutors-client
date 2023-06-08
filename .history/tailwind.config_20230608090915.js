@@ -9,11 +9,11 @@ export default {
       {
         'light': {
            'primary' : '#304566',
-           'primary-focus' : '#6EC1E4',
+           'primary-focus' : '#4506cb',
            'primary-content' : '#ffffff',
 
-           'secondary' : '#FFA1AC',
-           'secondary-focus' : '#FFD3BD',
+           'secondary' : '#f000b8',
+           'secondary-focus' : '#bd0091',
            'secondary-content' : '#ffffff',
 
            'accent' : '#37cdbe',
