@@ -35,6 +35,7 @@ const Register = () => {
                     const photo = data.data.display_url
                     createUser(email, password)
                         .then(result => {
+                            logOut()
                             const profile = {
                                 displayName: name,
                                 photoURL: photo

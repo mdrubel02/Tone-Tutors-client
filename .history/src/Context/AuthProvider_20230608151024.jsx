@@ -4,7 +4,7 @@ import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthState
 
 export const AuthContext=createContext()
 const AuthProvider = ({children}) => {
-    const [user,setUser] = useState(null)
+    const [user,setUser] = useState('Rubel')
     const [productRefetch,setProductRefetch] = useState()
     const [loading,setLoading] = useState(true)
     const auth = getAuth(app)
@@ -44,7 +44,6 @@ const AuthProvider = ({children}) => {
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth,currentUser=>{
             setUser(currentUser)
-            console.log(currentUser, 'user there');
             setLoading(false)
         })
         return ()=>unsubscribe()

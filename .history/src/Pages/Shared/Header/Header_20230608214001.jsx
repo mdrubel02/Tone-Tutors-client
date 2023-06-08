@@ -50,18 +50,29 @@ const Header = () => {
                 <>
                     <li className='flex items-center'>
                         <NavLink
-                            to="/dashboard"
-                            aria-label="dashboard"
-                            title="dashboard"
-                            className={({ isActive }) => isActive ? "font-medium bg-primary-focus transition-colors duration-100" : "font-bold transition-colors duration-100 text-primary"}
+                            to="/myToys"
+                            aria-label="myreview"
+                            title="myreview"
+                            className={({ isActive }) => isActive ? "font-medium text-yellow transition-colors duration-100" : "font-medium transition-colors duration-100 text-white"}
                         >
-                            Dashboard
+                            My Toys
                         </NavLink>
                        
                     </li>
+                    <li className='flex items-center'>
+                        <NavLink
+                            to="/addCategory"
+                            aria-label="addService"
+                            title="addService"
+                            className={({ isActive }) => isActive ? "font-medium text-primary transition-colors duration-100" : "font-medium transition-colors duration-100 text-primary"}
+                        >
+                            Add A Toy
+                        </NavLink>
+                        
+                    </li>
                     <button
                         onClick={logOutHandle}
-                        className="tracking-wide  flex items-center font-bold transition-colors duration-100 text-primary">
+                        className="font-medium tracking-wide  flex items-center transition-colors duration-200 hover:text-teal-accent-400 text-white">
                         Logout
                     </button>
                 </>

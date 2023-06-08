@@ -1,0 +1,47 @@
+import React from 'react';
+import { dbUser } from '../Api/user';
+
+const SocialLogin = () => {
+    const {signInGoogle} = useContext(AuthContext)
+    const navigate=useNavigate()
+
+    const signWithGoogleHandle=()=>{
+        signInGoogle()
+        .then(result=>{
+            const User = result.user
+            const {email,displayName,photoURL} = User
+            const user = {
+                name:displayName,
+                email:email,
+                image:photoURL,
+            }
+            dbUser(user)
+            .then(data=>{
+                if(data.accessToken){
+                    localStorage.setItem('tone-tutors-token',data.accessToken)
+                    navigate(from?(from,{replace:true}) : '/')
+                }
+            })
+            .catch(error=>console.log(error))
+        })
+        .catch(error=>toast.error(error.message))
+    }
+
+    return (
+        <div className='mt-6'>
+        <div className="divider font-semibold my-6">OR</div>
+         <div className='relative'>
+            
+            <div className='absolute left-4 top-[20%] text-black' >
+                <img src="https://i.ibb.co/GW2pwSv/google.png" alt="" className='w-[30px]' />
+            </div>
+            <button
+            onClick={signWithGoogleHandle}
+            className="py-3 w-full bg-white border border-gray-300 rounded-full shadow-sm flex-grow px-4   font-semibold  outline-none pl-12 bg-none"
+            >SignIn With Google</button>
+        </div>
+    </div>
+    );
+};
+
+export default SocialLogin;

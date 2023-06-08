@@ -35,6 +35,7 @@ const Register = () => {
                     const photo = data.data.display_url
                     createUser(email, password)
                         .then(result => {
+                            logOut()
                             const profile = {
                                 displayName: name,
                                 photoURL: photo
@@ -48,8 +49,18 @@ const Register = () => {
                                     }
                                     dbUser(user)
                                         .then(data => {
-                                            console.log(data);
-                                           navigate('/')
+                                            if (data.acknowledged) {
+                                                if (data.accessToken) {
+                                                    localStorage.setItem('furniture-token', data.accessToken)
+                                                    toast.success('Registration successfull', { duration: 1200 })
+                                                    setLoad(false)
+                                                    navigate('/login')
+                                                }
+                                            }
+                                            else {
+                                                setLoad(false)
+                                                toast.error(data.message, { duration: 2000 })
+                                            }
                                         }
                                         )
                                         .catch(error => {

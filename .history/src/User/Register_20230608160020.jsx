@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTitle } from '../Hooks/useTitle';
 import { dbUser } from '../Api/user';
 import { useForm } from 'react-hook-form';
-import { imageUpload } from '../Api/imageUpload';
 
 const Register = () => {
     useTitle('Register')
@@ -23,6 +22,7 @@ const Register = () => {
         const name = data.name
         const email = data.email
         const password = data.password
+        const role = data.role
         const image = data.image[0]
 
         const formData = new FormData()
@@ -35,6 +35,7 @@ const Register = () => {
                     const photo = data.data.display_url
                     createUser(email, password)
                         .then(result => {
+                            logOut()
                             const profile = {
                                 displayName: name,
                                 photoURL: photo
@@ -44,12 +45,23 @@ const Register = () => {
                                     const user = {
                                         name,
                                         email,
-                                        image: photo
+                                        image: photo,
+                                        role: role
                                     }
                                     dbUser(user)
                                         .then(data => {
-                                            console.log(data);
-                                           navigate('/')
+                                            if (data.acknowledged) {
+                                                if (data.accessToken) {
+                                                    localStorage.setItem('furniture-token', data.accessToken)
+                                                    toast.success('Registration successfull', { duration: 1200 })
+                                                    setLoad(false)
+                                                    navigate('/login')
+                                                }
+                                            }
+                                            else {
+                                                setLoad(false)
+                                                toast.error(data.message, { duration: 2000 })
+                                            }
                                         }
                                         )
                                         .catch(error => {
@@ -110,7 +122,7 @@ const Register = () => {
                                     })} type="password" placeholder="Password" className="outline-none flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm" />
                                     {errors?.password && <p className='text-red-600'>{errors?.password.message}</p>}
                                 </div>
-                                <button type="submit" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-primary-focus">
+                                <button type="submit" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-secondary">
                                     {
                                         load ? <span className='border-2 border-dashed border-white animate-spin w-7 h-7 rounded-full'></span> : ' Register'
                                     }
