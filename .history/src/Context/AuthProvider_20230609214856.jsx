@@ -49,10 +49,10 @@ const AuthProvider = ({children}) => {
             console.log(currentUser, 'user there');
               // get and set token
               if(currentUser){
-                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
+                axios.post('https://bistro-boss-server-fawn.vercel.app/jwt', {email: currentUser.email})
                 .then(data =>{
                     console.log(data.data.token)
-                    Cookies.set('access-token', data.data.token)
+                    Cookies.set('access', data.data.token)
                     setLoading(false);
                 })
             }

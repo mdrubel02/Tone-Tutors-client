@@ -5,7 +5,7 @@ import useAuth from './useAuth';
 import Cookies from 'js-cookie';
 
 const axiosSecure = axios.create({
-  baseURL: 'http://localhost:5000', 
+  baseURL: 'https://bistro-boss-server-fawn.vercel.app', 
 });
 
 const useAxiosSecure = () => {

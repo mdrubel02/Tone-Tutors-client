@@ -52,7 +52,7 @@ const AuthProvider = ({children}) => {
                 axios.post('http://localhost:5000/jwt', {email: currentUser.email})
                 .then(data =>{
                     console.log(data.data.token)
-                    Cookies.set('access-token', data.data.token)
+                    Cookies.set('access', data.data.token)
                     setLoading(false);
                 })
             }
