@@ -31,7 +31,7 @@ const SocialLogin = () => {
                       onScreen: true
                     }
                   })
-                  navigate('/');
+                  navigate(from, { replace: true });
             }
             dbUser(user)
             .then(data=>{

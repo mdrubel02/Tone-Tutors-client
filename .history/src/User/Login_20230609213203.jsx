@@ -36,7 +36,7 @@ const Login = () => {
                         }
                       })
                     setLoad(false)
-                    navigate(from, { replace: true });
+                    navigate(from, { replace: true })
                 }
                 else {
                     setLoad(false)

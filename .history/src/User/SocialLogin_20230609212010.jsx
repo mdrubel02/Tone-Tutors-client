@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
 import { dbUser } from '../Api/user';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Context/AuthProvider';
 import { Store } from 'react-notifications-component';
 
-const SocialLogin = () => {
+const SocialLogin = ({from}) => {
     const {signInGoogle} = useContext(AuthContext)
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const navigate=useNavigate()
 
     const signWithGoogleHandle=()=>{
         signInGoogle()
@@ -20,22 +18,21 @@ const SocialLogin = () => {
                 email:email,
                 image:photoURL,
             }
-            console.log(result.user.accessToken);
-            if(result.user.accessToken){
-                Store.addNotification({
-                    title: "Google login successfully",
-                    type: "success",
-                    container: 'top-center',
-                    dismiss: {
-                      duration: 5000,
-                      onScreen: true
-                    }
-                  })
-                  navigate('/');
-            }
             dbUser(user)
             .then(data=>{
                 console.log(data);
+                if(data.accessToken){
+                    Store.addNotification({
+                        title: "Register successfully",
+                        type: "success",
+                        container: 'top-center',
+                        dismiss: {
+                          duration: 5000,
+                          onScreen: true
+                        }
+                      })
+                    navigate(from?(from,{replace:true}) : '/')
+                }
             })
             .catch(error=>console.log(error))
         })

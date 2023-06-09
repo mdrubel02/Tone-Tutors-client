@@ -10,9 +10,9 @@ const Login = () => {
     useTitle('Login')
     const { register, handleSubmit, formState: { errors } } = useForm();
     const [load, setLoad] = useState(false)
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
     const {
         userSignIn,
         logOut
@@ -36,7 +36,7 @@ const Login = () => {
                         }
                       })
                     setLoad(false)
-                    navigate(from, { replace: true });
+                    navigate(from, { replace: true })
                 }
                 else {
                     setLoad(false)

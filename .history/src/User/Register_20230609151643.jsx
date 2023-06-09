@@ -74,15 +74,7 @@ const Register = () => {
                         })
                         .catch(error => {
                             setLoad(false)
-                            Store.addNotification({
-                                title: "Register Unsuccessfully",
-                                type: "warning",
-                                container: 'top-center',
-                                dismiss: {
-                                  duration: 5000,
-                                  onScreen: true
-                                }
-                              })
+                            toast.error(error.message, { duration: 1200 })
                         })
                 }
             })

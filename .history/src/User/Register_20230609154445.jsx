@@ -75,7 +75,7 @@ const Register = () => {
                         .catch(error => {
                             setLoad(false)
                             Store.addNotification({
-                                title: "Register Unsuccessfully",
+                                title: "Register successfully",
                                 type: "warning",
                                 container: 'top-center',
                                 dismiss: {

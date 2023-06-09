@@ -6,9 +6,9 @@ import { Store } from 'react-notifications-component';
 
 const SocialLogin = () => {
     const {signInGoogle} = useContext(AuthContext)
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
+    const navigate=useNavigate()
 
     const signWithGoogleHandle=()=>{
         signInGoogle()
@@ -23,7 +23,7 @@ const SocialLogin = () => {
             console.log(result.user.accessToken);
             if(result.user.accessToken){
                 Store.addNotification({
-                    title: "Google login successfully",
+                    title: "Register successfully",
                     type: "success",
                     container: 'top-center',
                     dismiss: {
@@ -31,7 +31,7 @@ const SocialLogin = () => {
                       onScreen: true
                     }
                   })
-                  navigate('/');
+                navigate(from?(from,{replace:true}) : '/')
             }
             dbUser(user)
             .then(data=>{

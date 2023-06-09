@@ -3,7 +3,6 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import { Link, NavLink } from 'react-router-dom';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import './Header.css'
-import { Store } from 'react-notifications-component';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
@@ -12,15 +11,7 @@ const Header = () => {
 
     const logOutHandle = () => {
         logOut()
-            .then(() =>  Store.addNotification({
-                title: "Logout successfully",
-                type: "success",
-                container: 'top-center',
-                dismiss: {
-                  duration: 5000,
-                  onScreen: true
-                }
-              }))
+            .then(() => toast.warning('Lof Out', { autoClose: 1000 }))
     }
     const menu = <>
         <li className='flex items-center'>
@@ -119,7 +110,7 @@ const Header = () => {
                         <button
                             aria-label="Open Menu"
                             title="Open Menu"
-                            className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline bg-secondary"
+                            className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline"
                             onClick={() => setIsMenuOpen(true)}
                         >
                             <svg className="w-5 text-white" viewBox="0 0 24 24">
