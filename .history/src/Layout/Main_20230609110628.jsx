@@ -10,6 +10,7 @@ const Main = () => {
         <>
             { noHeaderFooter || <Header />}
             <Outlet></Outlet>
+            { noHeaderFooter || <Footer />}
         </>
     );
 };
