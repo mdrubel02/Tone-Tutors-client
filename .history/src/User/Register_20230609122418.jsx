@@ -7,7 +7,6 @@ import { dbUser } from '../Api/user';
 import { useForm } from 'react-hook-form';
 import { imageUpload } from '../Api/imageUpload';
 import { AiFillEyeInvisible} from 'react-icons/ai';
-import { AiFillEye} from 'react-icons/ai';
 
 const Register = () => {
     useTitle('Register')
@@ -114,7 +113,7 @@ const Register = () => {
                                         pattern: { value: /(?=.*[!@#$&*])/, message: 'password should be minimum one special character' },
                                         minLength: { value: 6, message: 'password should be must 6 characters' }
                                     })} type={passwordVisible ? 'text' : 'password'} placeholder="Password" className="outline-none flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm "  />
-                                    <p className='absolute  right-3 bottom-4 text-xl text-primary-focus cursor-pointer' onClick={()=>togglePasswordVisibility()}>{passwordVisible ?<AiFillEye/>:<AiFillEyeInvisible />}</p>
+                                    <p className='absolute  right-3 bottom-4 text-xl text-primary-focus cursor-pointer'><AiFillEyeInvisible className=''/></p>
                                     
                                     {errors?.password && <p className='text-red-600'>{errors?.password.message}</p>}
                                 </div>

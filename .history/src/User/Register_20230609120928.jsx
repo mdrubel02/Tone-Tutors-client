@@ -7,12 +7,10 @@ import { dbUser } from '../Api/user';
 import { useForm } from 'react-hook-form';
 import { imageUpload } from '../Api/imageUpload';
 import { AiFillEyeInvisible} from 'react-icons/ai';
-import { AiFillEye} from 'react-icons/ai';
 
 const Register = () => {
     useTitle('Register')
     const [load, setLoad] = useState(false)
-    const [passwordVisible, setPasswordVisible] = useState(false);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const navigate = useNavigate()
     const {
@@ -74,9 +72,6 @@ const Register = () => {
             })
 
     }
-    const togglePasswordVisibility = () => {
-        setPasswordVisible(!passwordVisible);
-      };
     return (
         <div className="bg-opacity-75">
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -107,15 +102,14 @@ const Register = () => {
                                     <input {...register("image", { required: "image is required!" })} placeholder="Upload Image" type="file" className="file-input file-input-bordered w-full " />
                                     {errors?.image && <p className='text-red-600'>{errors?.image.message}</p>}
                                 </div>
-                                <div className="space-y-1 text-sm relative">
+                                <div className="space-y-1 text-sm">
                                     <label htmlFor="password" className="block mb-1 font-medium text-[16px]">Password</label>
                                     <input {...register("password", {
                                         required: "Password is required!",
                                         pattern: { value: /(?=.*[!@#$&*])/, message: 'password should be minimum one special character' },
                                         minLength: { value: 6, message: 'password should be must 6 characters' }
-                                    })} type={passwordVisible ? 'text' : 'password'} placeholder="Password" className="outline-none flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm "  />
-                                    <p className='absolute  right-3 bottom-4 text-xl text-primary-focus cursor-pointer' onClick={()=>togglePasswordVisibility()}>{passwordVisible ?<AiFillEye/>:<AiFillEyeInvisible />}</p>
-                                    
+                                    })} type="password" placeholder="Password" className="outline-none flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm relative"  />
+                                    <AiFillEyeInvisible className='absolute bottom-0 left-0'/>
                                     {errors?.password && <p className='text-red-600'>{errors?.password.message}</p>}
                                 </div>
                                 <button type="submit" className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-primary-focus">
