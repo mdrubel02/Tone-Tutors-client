@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import { FaUserShield } from "react-icons/fa";
+import { FaUserShield ,FaPersonDotsFromLine} from "react-icons/fa";
 import { Store } from 'react-notifications-component';
 import useAdmin from '../../../Hooks/useAdmin';
 
@@ -84,7 +84,7 @@ const AllUsers = () => {
                                 {user.role ?<td>{user.role}</td>: <td>student</td>}
                                 <td><button disabled={user?.role === 'admin'} onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button> 
                                     </td>
-                                <td><button disabled={user?.role === 'instructor'} onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white">Instructor</button></td>
+                                <td><button  onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white"><FaPersonDotsFromLine></FaPersonDotsFromLine></button></td>
                             </tr>)
                         }
 
