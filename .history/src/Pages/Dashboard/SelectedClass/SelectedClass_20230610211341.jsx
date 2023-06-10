@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
-import { Store } from 'react-notifications-component';
 
 const SelectedClass = () => {
     const { user } = useContext(AuthContext)
@@ -15,21 +14,11 @@ const SelectedClass = () => {
             return res.data;
         }
     })
-    const handleDeleteBooking =(selected)=>{
-        axiosSecure.delete(`/selected/${selected._id}`)
+    const handleDeleteBooking =(id)=>{
+        console.log(id);
+        axiosSecure.delete(`/selected/${id}`, newItem)
         .then(data =>{
-            if(data.data.acknowledged ){
-                Store.addNotification({
-                    title: `${selected.instrument_name} Deleted successfully!`,
-                    type: "success",
-                    container: 'top-center',
-                    dismiss: {
-                      duration: 5000,
-                      onScreen: true
-                    }
-                  })
-            }
-            refetch()
+            console.log(data.data , 'success');
         })
     }
     return (
@@ -53,7 +42,7 @@ const SelectedClass = () => {
                                 <td>{selected.instrument_name}</td>
                                 <td>{selected.available_seats}</td>
                                 <td><button className='btn btn-sm bg-[#64b450] text-white'>Pay Now</button></td>
-                                <td><button onClick={()=>handleDeleteBooking(selected)} className='btn btn-primary btn-sm'>Deleted</button></td>
+                                <td><button onClick={()=>handleDeleteBooking(selected._id)} className='btn btn-primary btn-sm'>Deleted</button></td>
                             </tr>)
                         }
 

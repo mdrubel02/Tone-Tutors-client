@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
-import { Store } from 'react-notifications-component';
+import {MdPayment} from 'react-icons/md'
 
 const SelectedClass = () => {
     const { user } = useContext(AuthContext)
@@ -15,23 +15,6 @@ const SelectedClass = () => {
             return res.data;
         }
     })
-    const handleDeleteBooking =(selected)=>{
-        axiosSecure.delete(`/selected/${selected._id}`)
-        .then(data =>{
-            if(data.data.acknowledged ){
-                Store.addNotification({
-                    title: `${selected.instrument_name} Deleted successfully!`,
-                    type: "success",
-                    container: 'top-center',
-                    dismiss: {
-                      duration: 5000,
-                      onScreen: true
-                    }
-                  })
-            }
-            refetch()
-        })
-    }
     return (
         <div className="w-full">
             <h3 className="text-3xl font-semibold my-4">Your Total Selected Class: {selectedClasses.length}</h3>
@@ -52,8 +35,8 @@ const SelectedClass = () => {
                                 <th>{index + 1}</th>
                                 <td>{selected.instrument_name}</td>
                                 <td>{selected.available_seats}</td>
-                                <td><button className='btn btn-sm bg-[#64b450] text-white'>Pay Now</button></td>
-                                <td><button onClick={()=>handleDeleteBooking(selected)} className='btn btn-primary btn-sm'>Deleted</button></td>
+                                <td><MdPayment className='text-2xl text-[#64b450]'/></td>
+                                <td>Deled</td>
                             </tr>)
                         }
 
