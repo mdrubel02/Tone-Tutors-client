@@ -7,10 +7,10 @@ import Errorpage from "../../Pages/Shared/Errorpage/Errorpage";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import DashboardLayout from "../DashboardLayout";
 import Instructors from "../../Pages/Instructors/Instructors";
+import Classes from "../../Pages/Classes/Classes";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../../Pages/Dashboard/AllUsers/Allusers";
 import Class from "../../Pages/Dashboard/SelectedClass/Class";
-import AllClasses from "../../Pages/Classes/AllClasses";
 
 
 const router = createBrowserRouter([{
@@ -23,7 +23,7 @@ const router = createBrowserRouter([{
         { path: '/register', element: <Register /> },
         { path: '/login', element: <Login /> },
         { path: '/instructors', element: <Instructors /> },
-        { path: '/classes', element: <AllClasses /> },
+        { path: '/classes', element: <Classes /> },
     ]
 },
 {

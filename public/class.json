@@ -1,0 +1,65 @@
+    [
+        {
+            "image_url": "https://i.ibb.co/L5sw2Gx/flute.jpg",
+            "instrument_name": "Guitar",
+            "instructor_name": "John Smith",
+            "available_seats": 10,
+            "price": 100
+        },
+        {
+            "image_url": "https://i.ibb.co/rkjq9cN/Cello.jpg",
+            "instrument_name": "Piano",
+            "instructor_name": "Sarah Johnson",
+            "available_seats": 8,
+            "price": 150
+        },
+        {
+            "image_url": "https://i.ibb.co/hgNNHbg/Clarinet.jpg",
+            "instrument_name": "Violin",
+            "instructor_name": "Michael Brown",
+            "available_seats": 6,
+            "price": 120
+        },
+        {
+            "image_url": "https://i.ibb.co/hK05VjR/rsz-drums.jpg",
+            "instrument_name": "Drums",
+            "instructor_name": "Emily Davis",
+            "available_seats": 4,
+            "price": 200
+        },
+        {
+            "image_url": "https://i.ibb.co/yNj7tXt/rsz-gutter.jpg",
+            "instrument_name": "Flute",
+            "instructor_name": "David Wilson",
+            "available_seats": 5,
+            "price": 80
+        },
+        {
+            "image_url": "https://i.ibb.co/HrgZphd/voilen.jpg",
+            "instrument_name": "Saxophone",
+            "instructor_name": "Olivia Turner",
+            "available_seats": 7,
+            "price": 180
+        },
+        {
+            "image_url": "https://i.ibb.co/hgNNHbg/Clarinet.jpg",
+            "instrument_name": "Trumpet",
+            "instructor_name": "Thomas Anderson",
+            "available_seats": 3,
+            "price": 160
+        },
+        {
+            "image_url": "https://i.ibb.co/hgNNHbg/Clarinet.jpg",
+            "instrument_name": "Cello",
+            "instructor_name": "Sophia Martinez",
+            "available_seats": 4,
+            "price": 140
+        },
+        {
+            "image_url": "https://i.ibb.co/L5sw2Gx/flute.jpg",
+            "instrument_name": "Clarinet",
+            "instructor_name": "Noah Thompson",
+            "available_seats": 6,
+            "price": 110
+        }
+    ]
