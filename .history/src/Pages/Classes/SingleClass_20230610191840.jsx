@@ -48,7 +48,7 @@ const SingleClass = ({ singleClass }) => {
           <h3 className='text-xl font-semibold'>Price: ${price}</h3>
           <h3 className='text-xl font-semibold'>available seats:{available_seats}</h3>
           <div className="card-actions justify-end w-full">
-            <button onClick={() => bookingClasses(singleClass)} className="btn btn-primary w-full">Class Booking</button>
+            <button onClick={() => bookingClasses(singleClass)} className="btn btn-primary w-full">Buy Now</button>
           </div>
         </div>
       </div>
