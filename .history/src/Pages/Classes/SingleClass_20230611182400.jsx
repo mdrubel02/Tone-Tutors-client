@@ -41,7 +41,7 @@ const SingleClass = ({ singleClass }) => {
   }
   return (
     <div className="overflow-hidden transition-shadow duration-300 bg-white rounded px-4 mb-7">
-      <div className={`card w-96 bg-base-100 shadow-xl ${available_seats === 0 ? 'bg-red-500' : ''}`}>
+      <div className="card w-96 bg-base-100 shadow-xl">
         <figure><img src={image_url} alt="Shoes" /></figure>
         <div className="card-body">
           <p className="text-2xl font-bold leading-5 capitalize">{instrument_name}</p>

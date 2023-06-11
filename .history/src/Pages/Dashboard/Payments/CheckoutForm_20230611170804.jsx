@@ -79,7 +79,6 @@ const CheckoutForm = ({bookingSelected}) => {
             setTransactionId(paymentIntent.id);
             // store payment info in the database
             const payment = {
-                date: new Date(),
                 price,
                 transactionId: paymentIntent.id,
                 email: user?.email,
