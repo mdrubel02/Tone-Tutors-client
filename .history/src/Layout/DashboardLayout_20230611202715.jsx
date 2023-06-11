@@ -10,7 +10,6 @@ const DashboardLayout = () => {
     useTitle('dashboard')
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin()
-    console.log(isAdmin);
     const role = true
     return (
         <div>

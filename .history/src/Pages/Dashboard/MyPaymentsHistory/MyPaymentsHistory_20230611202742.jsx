@@ -16,7 +16,6 @@ const MyPaymentsHistory = () => {
             return res.data;
         }
     })
-    refetch()
     return (
 <div className="w-full">
             <h3 className="text-3xl font-semibold my-4">Your Payment History</h3>
