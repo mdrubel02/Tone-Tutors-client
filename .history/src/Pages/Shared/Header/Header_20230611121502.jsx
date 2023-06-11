@@ -7,6 +7,7 @@ import { Store } from 'react-notifications-component';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
+
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const logOutHandle = () => {

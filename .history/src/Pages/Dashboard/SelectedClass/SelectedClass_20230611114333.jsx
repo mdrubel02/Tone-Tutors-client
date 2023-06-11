@@ -3,15 +3,16 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { useQuery } from '@tanstack/react-query';
 import { Store } from 'react-notifications-component';
+import StripeCheckout from 'react-stripe-checkout';
 import useSelectedClass from '../../../Hooks/useSelectedClass';
-import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const { user } = useContext(AuthContext)
     const [axiosSecure] = useAxiosSecure();
     const [selectedClasses, refetch] = useSelectedClass()
+    const publishableKey = import.meta.env.VITE_PUBLISHABLE_KEY
+    console.log(publishableKey);
     // const priceForStripe = product.price * 100;
-    refetch()
     const handleDeleteBooking = (selected) => {
         axiosSecure.delete(`/selected/${selected._id}`)
             .then(data => {
@@ -49,10 +50,11 @@ const SelectedClass = () => {
                                 <th>{index + 1}</th>
                                 <td>{selected.instrument_name}</td>
                                 <td>{selected.available_seats}</td>
-                                <td> <Link
-                                to={`/dashboard/payments/${selected._id}`}
-                                ><button className='btn btn-sm bg-[#64b450] text-white'>Pay Now</button>
-                                </Link></td>
+                                <td><StripeCheckout
+                                stripeKey={publishableKey}
+                                >
+                                    <button className='btn btn-sm bg-[#64b450] text-white'>Pay Now</button>
+                                </StripeCheckout></td>
                                 <td><button onClick={() => handleDeleteBooking(selected)} className='btn btn-primary btn-sm'>Deleted</button></td>
                             </tr>)
                         }

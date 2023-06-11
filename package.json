@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@stripe/react-stripe-js": "^2.1.0",
+    "@stripe/stripe-js": "^1.54.0",
     "@tanstack/react-query": "^4.29.12",
     "axios": "^1.4.0",
     "firebase": "^9.22.1",
@@ -23,6 +25,7 @@
     "react-notifications-component": "^4.0.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.12.0",
+    "react-stripe-checkout": "^2.6.3",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {

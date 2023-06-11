@@ -11,7 +11,6 @@ const SelectedClass = () => {
     const [axiosSecure] = useAxiosSecure();
     const [selectedClasses, refetch] = useSelectedClass()
     // const priceForStripe = product.price * 100;
-    refetch()
     const handleDeleteBooking = (selected) => {
         axiosSecure.delete(`/selected/${selected._id}`)
             .then(data => {
