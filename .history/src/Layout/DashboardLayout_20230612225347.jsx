@@ -40,7 +40,7 @@ const DashboardLayout = () => {
                                 to="/dashboard/allusers"><FaUsers></FaUsers> All Users</NavLink></li>
                                 <li><NavLink
                                 className={({ isActive }) => isActive ?  "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
-                                to="/dashboard/manageClass"><FaUsers></FaUsers>Manage-Classes</NavLink></li>
+                                to="/dashboard/allusers"><FaUsers></FaUsers>Manage-Classes</NavLink></li>
                             </>
                         )}
 
