@@ -4,8 +4,6 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useAuth from '../../../Hooks/useAuth';
 import { imageUpload } from '../../../Api/imageUpload';
-import { Store } from 'react-notifications-component';
-import { useTitle } from '../../../Hooks/useTitle';
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 const AddClasses = () => {
     const { user } = useAuth()
@@ -13,31 +11,23 @@ const AddClasses = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        useTitle('add my classes')
+
         const formData = new FormData();
         formData.append('image', data.image[0])
 
         imageUpload(formData)
+            .then(res => res.json())
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
-                    const { name, price, available_seats, } = data;
-                    const newClass = { class_name: name, Instructor_name: user?.displayName, price: parseFloat(price), available_seats: parseFloat(available_seats), image: imgURL, Instructor_email: user?.email, status: 'pending',enrolledStudents: 0}
-                    console.log(newClass)
-                    axiosSecure.post('/instructor/class', newClass)
+                    const { name, price, category, recipe } = data;
+                    const newItem = { name, price: parseFloat(price), category, recipe, image: imgURL }
+                    console.log(newItem)
+                    axiosSecure.post('/menu', newItem)
                         .then(data => {
                             console.log('after posting new menu item', data.data)
                             if (data.data.insertedId) {
                                 reset();
-                                Store.addNotification({
-                                    title: "New class added successfully",
-                                    type: "success",
-                                    container: 'top-center',
-                                    dismiss: {
-                                      duration: 3000,
-                                      onScreen: true
-                                    }
-                                  })
                             }
                         })
                 }
@@ -76,7 +66,7 @@ const AddClasses = () => {
                     <label className="label">
                         <span className="label-text font-semibold">Available seats*</span>
                     </label>
-                    <input type="number" {...register("available_seats", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
+                    <input type="number" {...register("Available_seats", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
                 </div>
                 <div className="form-control w-full my-4">
                     <label className="label">

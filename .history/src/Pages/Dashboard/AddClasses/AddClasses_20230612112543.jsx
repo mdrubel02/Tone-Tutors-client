@@ -5,7 +5,6 @@ import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useAuth from '../../../Hooks/useAuth';
 import { imageUpload } from '../../../Api/imageUpload';
 import { Store } from 'react-notifications-component';
-import { useTitle } from '../../../Hooks/useTitle';
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 const AddClasses = () => {
     const { user } = useAuth()
@@ -13,7 +12,7 @@ const AddClasses = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        useTitle('add my classes')
+
         const formData = new FormData();
         formData.append('image', data.image[0])
 

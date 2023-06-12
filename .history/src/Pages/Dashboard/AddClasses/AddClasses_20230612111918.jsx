@@ -4,8 +4,6 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import SectionTitle from '../../../Components/SectionTitle/SectionTitle';
 import useAuth from '../../../Hooks/useAuth';
 import { imageUpload } from '../../../Api/imageUpload';
-import { Store } from 'react-notifications-component';
-import { useTitle } from '../../../Hooks/useTitle';
 const img_hosting_token = import.meta.env.VITE_Image_Upload_token;
 const AddClasses = () => {
     const { user } = useAuth()
@@ -13,7 +11,7 @@ const AddClasses = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = data => {
-        useTitle('add my classes')
+
         const formData = new FormData();
         formData.append('image', data.image[0])
 
@@ -22,24 +20,15 @@ const AddClasses = () => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
                     const { name, price, available_seats, } = data;
-                    const newClass = { class_name: name, Instructor_name: user?.displayName, price: parseFloat(price), available_seats: parseFloat(available_seats), image: imgURL, Instructor_email: user?.email, status: 'pending',enrolledStudents: 0}
+                    const newClass = { class_name: name, Instructor_name: user?.displayName, price: parseFloat(price), available_seats: parseFloat(available_seats), image: imgURL, Instructor_email: user?.email}
                     console.log(newClass)
-                    axiosSecure.post('/instructor/class', newClass)
-                        .then(data => {
-                            console.log('after posting new menu item', data.data)
-                            if (data.data.insertedId) {
-                                reset();
-                                Store.addNotification({
-                                    title: "New class added successfully",
-                                    type: "success",
-                                    container: 'top-center',
-                                    dismiss: {
-                                      duration: 3000,
-                                      onScreen: true
-                                    }
-                                  })
-                            }
-                        })
+                    // axiosSecure.post('/menu', newItem)
+                    //     .then(data => {
+                    //         console.log('after posting new menu item', data.data)
+                    //         if (data.data.insertedId) {
+                    //             reset();
+                    //         }
+                    //     })
                 }
             })
 
