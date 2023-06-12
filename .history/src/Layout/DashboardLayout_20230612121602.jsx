@@ -48,9 +48,6 @@ const DashboardLayout = () => {
                         <li ><NavLink
                              className={({ isActive }) => isActive ?  "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
                             to="/dashboard/addClasses"><FaUsers></FaUsers>Add-Classes</NavLink></li>
-                        <li ><NavLink
-                             className={({ isActive }) => isActive ?  "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
-                            to="/dashboard/InsMyClass"><FaUsers></FaUsers>Ins-My-Class</NavLink></li>
                     </ul>
 
                 </div>
