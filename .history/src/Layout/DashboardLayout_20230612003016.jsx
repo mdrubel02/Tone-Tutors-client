@@ -47,7 +47,7 @@ const DashboardLayout = () => {
                             to="/dashboard/myPaymentHistory"><FaUsers></FaUsers>My-Payment-History</NavLink></li>
                         <li ><NavLink
                              className={({ isActive }) => isActive ?  "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
-                            to="/dashboard/addClasses"><FaUsers></FaUsers>Add-Classes</NavLink></li>
+                            to="/dashboard/addClasses"><FaUsers></FaUsers>My-Payment-History</NavLink></li>
                     </ul>
 
                 </div>
