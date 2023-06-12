@@ -46,7 +46,7 @@ const Login = () => {
             })
             .catch(error => {
                 setLoad(false)
-                console.log(error.message)
+                console.log(error.message, { duration: 1200 })
             })
 
     }

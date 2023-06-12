@@ -4,7 +4,6 @@ import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import SectionTitle from '../../../../Components/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
-import { Store } from 'react-notifications-component';
 
 const InstructorMyClass = () => {
     const { user, loading } = useAuth()
@@ -24,23 +23,9 @@ const InstructorMyClass = () => {
         const { price, available_seats, } = data;
         const newClass = { price: parseFloat(price), available_seats: parseFloat(available_seats)}
         console.log(newClass);
-        if(price && available_seats){
-           axiosSecure.patch(`/instructor/class/${updateModal}`, newClass)
-            .then(data => {
-                console.log(data.data.acknowledged)
-                reset()
-                Store.addNotification({
-                    title: "Price and seat updated successfully",
-                    type: "success",
-                    container: 'top-center',
-                    dismiss: {
-                      duration: 3000,
-                      onScreen: true
-                    }
-                  })
-                  refetch()
-            })
-        }
+        // if(price && available_seats){
+
+        // }
      
     }
 
@@ -52,9 +37,9 @@ const InstructorMyClass = () => {
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Instrument Name</th>
                             <th>Available seat</th>
-                            <th>Price</th>
                             <th>Student enroll</th>
                             <th>Status</th>
                             <th>Update</th>
@@ -62,10 +47,10 @@ const InstructorMyClass = () => {
                     </thead>
                     <tbody>
                         {
-                            InsMyClasses.map((insMyClass) => <tr key={insMyClass._id}>
+                            InsMyClasses.map((insMyClass, index) => <tr key={insMyClass._id}>
+                                <th>{index + 1}</th>
                                 <td>{insMyClass.class_name}</td>
                                 <td>{insMyClass.available_seats}</td>
-                                <td>{insMyClass.price}</td>
                                 <td>{insMyClass.enrolledStudents}</td>
                                 <td> {insMyClass.status}</td>
                                 <td>
@@ -99,10 +84,8 @@ const InstructorMyClass = () => {
                                 <div className='flex justify-end items-center'>
                                     <div className="modal-action">
                                         <a href="#" className="btn">Cancel</a>
-                                        <button className="btn btn-sm  text-white bg-primary mt-" type="submit"> Update </button>
                                     </div>
-                                    
-
+                                    <input className="btn btn-sm mt-4 text-white bg-primary  mb-3" type="submit" value="Add Class" />
                                 </div>
                             </div>
                         </form>

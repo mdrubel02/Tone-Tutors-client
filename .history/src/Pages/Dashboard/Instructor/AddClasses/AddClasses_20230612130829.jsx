@@ -87,7 +87,7 @@ const AddClasses = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Instructor Email*</span>
                         </label>
-                        <input type="text" placeholder="Instructor email" value={user?.email} readOnly
+                        <input type="text" placeholder="Instructor name" value={user?.email} readOnly
                             {...register("Instructor_email", { required: true, maxLength: 120 })}
                             className="input input-bordered w-full " />
                     </div>

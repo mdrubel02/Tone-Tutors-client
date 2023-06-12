@@ -52,9 +52,9 @@ const InstructorMyClass = () => {
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Instrument Name</th>
                             <th>Available seat</th>
-                            <th>Price</th>
                             <th>Student enroll</th>
                             <th>Status</th>
                             <th>Update</th>
@@ -62,10 +62,10 @@ const InstructorMyClass = () => {
                     </thead>
                     <tbody>
                         {
-                            InsMyClasses.map((insMyClass) => <tr key={insMyClass._id}>
+                            InsMyClasses.map((insMyClass, index) => <tr key={insMyClass._id}>
+                                <th>{index + 1}</th>
                                 <td>{insMyClass.class_name}</td>
                                 <td>{insMyClass.available_seats}</td>
-                                <td>{insMyClass.price}</td>
                                 <td>{insMyClass.enrolledStudents}</td>
                                 <td> {insMyClass.status}</td>
                                 <td>

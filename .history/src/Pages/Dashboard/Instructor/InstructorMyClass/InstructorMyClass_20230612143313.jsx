@@ -3,14 +3,15 @@ import useAuth from '../../../../Hooks/useAuth';
 import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import SectionTitle from '../../../../Components/SectionTitle/SectionTitle';
-import { useForm } from 'react-hook-form';
-import { Store } from 'react-notifications-component';
 
 const InstructorMyClass = () => {
     const { user, loading } = useAuth()
     const [axiosSecure] = useAxiosSecure();
-    const { register, handleSubmit, reset } = useForm();
     const [updateModal, setUpdateModal] = useState()
+    const [updateProduct, setUpdateProduct] = useState({
+        price: 0,
+        available_seats: 0,
+    })
     const { data: InsMyClasses = [], refetch } = useQuery({
         queryKey: ['InsMyClasses', user?.email],
         enabled: !loading,
@@ -19,31 +20,26 @@ const InstructorMyClass = () => {
             return res.data
         }
     })
+    const handleInputData = (event) => {
+        const name = event.target.name
+        const value = event.target.value
+        setUpdateProduct({ ...updateProduct, [name]: value })
 
-    const onSubmit = async (data) => {
-        const { price, available_seats, } = data;
-        const newClass = { price: parseFloat(price), available_seats: parseFloat(available_seats)}
-        console.log(newClass);
-        if(price && available_seats){
-           axiosSecure.patch(`/instructor/class/${updateModal}`, newClass)
-            .then(data => {
-                console.log(data.data.acknowledged)
-                reset()
-                Store.addNotification({
-                    title: "Price and seat updated successfully",
-                    type: "success",
-                    container: 'top-center',
-                    dismiss: {
-                      duration: 3000,
-                      onScreen: true
-                    }
-                  })
-                  refetch()
-            })
-        }
-     
     }
+    const handleUpdateReview =  async (event) => {
+        event.preventDefault()
+        const form = event.target
 
+        const products = {
+            price,
+            available_seats
+        }
+console.log(products);
+    //     if (price && available_seats) {
+    //        const res = await axiosSecure.patch('')
+    // }
+}
+  
     refetch()
     return (
         <div className="w-full">
@@ -52,9 +48,9 @@ const InstructorMyClass = () => {
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
+                            <th>#</th>
                             <th>Instrument Name</th>
                             <th>Available seat</th>
-                            <th>Price</th>
                             <th>Student enroll</th>
                             <th>Status</th>
                             <th>Update</th>
@@ -62,10 +58,10 @@ const InstructorMyClass = () => {
                     </thead>
                     <tbody>
                         {
-                            InsMyClasses.map((insMyClass) => <tr key={insMyClass._id}>
+                            InsMyClasses.map((insMyClass, index) => <tr key={insMyClass._id}>
+                                <th>{index + 1}</th>
                                 <td>{insMyClass.class_name}</td>
                                 <td>{insMyClass.available_seats}</td>
-                                <td>{insMyClass.price}</td>
                                 <td>{insMyClass.enrolledStudents}</td>
                                 <td> {insMyClass.status}</td>
                                 <td>
@@ -80,29 +76,39 @@ const InstructorMyClass = () => {
             <div>
                 <div className="modal" id="my-modal-2">
                     <div className="modal-box">
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form onSubmit={handleUpdateReview}>
                             <div className="mb-1 sm:mb-2">
                                 <div className='mb-3'>
-                                    <div className="form-control w-full ml-4">
-                                        <label className="label">
-                                            <span className="label-text font-semibold">Price*</span>
-                                        </label>
-                                        <input type="number" {...register("price", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
-                                    </div>
-                                    <div className="form-control w-full ml-4">
-                                        <label className="label">
-                                            <span className="label-text font-semibold">Available seats*</span>
-                                        </label>
-                                        <input type="number" {...register("available_seats", { required: true })} placeholder="Type here" className="input input-bordered w-full " />
-                                    </div>
+                                    <label htmlFor="rating" className='font-semibold mb-2 inline-block'>Update Your Product </label>
+                                    <input
+                                        onBlur={handleInputData}
+                                        placeholder="Price"
+                                        required
+                                        type="number"
+                                        className="py-3 w-full bg-white border border-gray-300 rounded-lg shadow-sm flex-grow px-4  transition duration-200 placeholder:text-black font-medium outline-none bg-none"
+                                        id="price"
+                                        name="price"
+                                    />
+                                    <input
+                                        onBlur={handleInputData}
+                                        placeholder="available seats"
+                                        required
+                                        type="number"
+                                        className="py-3 w-full bg-white border border-gray-300 rounded-lg shadow-sm flex-grow px-4  transition duration-200 placeholder:text-black font-medium outline-none bg-none"
+                                        id="available_seats"
+                                        name="available_seats"
+                                    />
                                 </div>
                                 <div className='flex justify-end items-center'>
                                     <div className="modal-action">
                                         <a href="#" className="btn">Cancel</a>
-                                        <button className="btn btn-sm  text-white bg-primary mt-" type="submit"> Update </button>
                                     </div>
-                                    
-
+                                    <button
+                                        type="submit"
+                                        className="btn mt-5 ml-2 bg-yellow border-none"
+                                    >
+                                        Update
+                                    </button>
                                 </div>
                             </div>
                         </form>

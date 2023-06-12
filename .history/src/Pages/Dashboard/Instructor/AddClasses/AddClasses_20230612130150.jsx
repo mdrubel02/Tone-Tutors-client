@@ -13,6 +13,7 @@ const AddClasses = () => {
     const { register, handleSubmit, reset } = useForm();
     useTitle('add my classes')
     const onSubmit = data => {
+       
         const formData = new FormData();
         formData.append('image', data.image[0])
 
@@ -21,7 +22,7 @@ const AddClasses = () => {
                 if (imgResponse.success) {
                     const imgURL = imgResponse.data.display_url;
                     const { name, price, available_seats, } = data;
-                    const newClass = { class_name: name, Instructor_name: user?.displayName, price: parseFloat(price), available_seats: parseFloat(available_seats), image: imgURL, email: user?.email, status: 'pending',enrolledStudents: 0}
+                    const newClass = { class_name: name, Instructor_name: user?.displayName, price: parseFloat(price), available_seats: parseFloat(available_seats), image: imgURL, Instructor_email: user?.email, status: 'pending',enrolledStudents: 0}
                     console.log(newClass)
                     axiosSecure.post('/instructor/class', newClass)
                         .then(data => {
@@ -87,7 +88,7 @@ const AddClasses = () => {
                         <label className="label">
                             <span className="label-text font-semibold">Instructor Email*</span>
                         </label>
-                        <input type="text" placeholder="Instructor email" value={user?.email} readOnly
+                        <input type="text" placeholder="Instructor name" value={user?.email} readOnly
                             {...register("Instructor_email", { required: true, maxLength: 120 })}
                             className="input input-bordered w-full " />
                     </div>
