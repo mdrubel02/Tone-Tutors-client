@@ -2,7 +2,6 @@ import React from 'react';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import InstructorsSingleClass from './InstructorsSingleClass';
-import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 
 const Instructors = () => {
     const [axiosSecure] = useAxiosSecure()
@@ -15,7 +14,6 @@ const Instructors = () => {
     })
     return (
         <div>
-             <SectionTitle subHeading="Our New" heading="Instructor Classes" ></SectionTitle>
         {
             instructorClasses.length > 0 ?
                 <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-10 '>
