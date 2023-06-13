@@ -69,10 +69,10 @@ const InstructorMyClass = () => {
                                 <td>{insMyClass.enrolledStudents}</td>
                                 <td>
                                     {insMyClass?.status === 'pending' && (
-                                        <button className='btn btn-primary btn-sm bg-[#FF6600] border-0'>{insMyClass?.status}</button>
+                                        <button className='btn btn-primary btn-sm bg-[#FF6600]'>{insMyClass?.status}</button>
                                     )}
                                     {insMyClass?.status === 'approved' && (
-                                        <button className='btn btn-primary btn-sm bg-[#33CC33] border-0'>{insMyClass?.status}</button>
+                                        <button className='btn btn-primary btn-sm bg-[#33CC33]'>{insMyClass?.status}</button>
                                     )}
                                     {!['pending', 'approved'].includes(insMyClass?.status) && (
                                         <p>{insMyClass?.status}</p>

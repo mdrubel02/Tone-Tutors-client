@@ -68,15 +68,9 @@ const InstructorMyClass = () => {
                                 <td>{insMyClass.price}</td>
                                 <td>{insMyClass.enrolledStudents}</td>
                                 <td>
-                                    {insMyClass?.status === 'pending' && (
-                                        <button className='btn btn-primary btn-sm bg-[#FF6600] border-0'>{insMyClass?.status}</button>
-                                    )}
-                                    {insMyClass?.status === 'approved' && (
-                                        <button className='btn btn-primary btn-sm bg-[#33CC33] border-0'>{insMyClass?.status}</button>
-                                    )}
-                                    {!['pending', 'approved'].includes(insMyClass?.status) && (
-                                        <p>{insMyClass?.status}</p>
-                                    )}
+                                    {insMyClass?.status === 'pending' && <button className='btn btn-primary btn-sm bg-[#FFFF33]'>{insMyClass?.status}</button>}
+                                    {insMyClass?.status === 'approved' && <button className='btn btn-primary btn-sm bg-[#33CC33]'>{insMyClass?.status}</button>}
+                                    {!insMyClass?.status === 'pending' || !insMyClass?.status === 'approved' &&<p>{insMyClass?.status}</p>}
                                 </td>
                                 <td>
                                     <a onClick={() => setUpdateModal(insMyClass?._id)} className="cursor-pointer inline-flex items-center justify-center w-full py-1 px-1 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-primary btn btn-sm" href="#my-modal-2" >Edit</a>

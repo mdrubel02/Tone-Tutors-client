@@ -16,24 +16,9 @@ const ManageClasses = () => {
             return res.data;
         }
     })
-    const approvedHandle =(id)=>{
+    const approvedHandle =()=>{
         const status = 'approved'
         console.log(status);
-        axiosSecure.patch(`/instructor/class/${id}`, {status})
-        .then(data => {
-            console.log(data.data.acknowledged)
-            reset()
-            Store.addNotification({
-                title: "Price and seat updated successfully",
-                type: "success",
-                container: 'top-center',
-                dismiss: {
-                  duration: 3000,
-                  onScreen: true
-                }
-              })
-              refetch()
-        })
     }
     const onSubmit = async (data) => {
         const { status } = data;
@@ -75,12 +60,10 @@ const ManageClasses = () => {
                                 <td>{index + 1}</td>
                                 <td>{manageClass.class_name}</td>
                                 <td>{manageClass.Instructor_name}</td>
-                                <td >
-                                    <button>{manageClass.email}</button>
-                                </td>
+                                <td>{manageClass.email}</td>
                                 <td>
                                     <div className='flex justify-center'>
-                                        <button className='me-3 bg-primary btn btn-sm text-white' onClick={()=>approvedHandle(manageClass?._id)}>Approved</button>
+                                        <button className='me-3 bg-primary btn btn-sm text-white' onClick={()=>approvedHandle()}>Approved</button>
                                         <a onClick={() => setUpdateStatus(manageClass?._id)} className="cursor-pointer inline-flex items-center justify-center w-20 py-1 px-1 font-semibold tracking-wide text-white transition duration-200 rounded-full shadow-md outline-none bg-primary btn btn-sm" href="#my-modal-2" >Denied</a>
                                     </div>
                                 </td>

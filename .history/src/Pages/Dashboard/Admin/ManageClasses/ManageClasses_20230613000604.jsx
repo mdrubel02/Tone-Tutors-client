@@ -75,9 +75,7 @@ const ManageClasses = () => {
                                 <td>{index + 1}</td>
                                 <td>{manageClass.class_name}</td>
                                 <td>{manageClass.Instructor_name}</td>
-                                <td >
-                                    <button>{manageClass.email}</button>
-                                </td>
+                                <td>{manageClass.email}</td>
                                 <td>
                                     <div className='flex justify-center'>
                                         <button className='me-3 bg-primary btn btn-sm text-white' onClick={()=>approvedHandle(manageClass?._id)}>Approved</button>

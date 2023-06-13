@@ -76,7 +76,7 @@ const ManageClasses = () => {
                                 <td>{manageClass.class_name}</td>
                                 <td>{manageClass.Instructor_name}</td>
                                 <td >
-                                    <button>{manageClass.email}</button>
+                                    <button >{manageClass.email}</button>
                                 </td>
                                 <td>
                                     <div className='flex justify-center'>
