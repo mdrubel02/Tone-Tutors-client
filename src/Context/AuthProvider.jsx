@@ -58,6 +58,7 @@ const AuthProvider = ({children}) => {
             }
             else{
                 Cookies.remove('access-token')
+                setLoading(false)
             }
             setLoading(false)
         })

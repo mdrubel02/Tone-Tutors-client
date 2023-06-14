@@ -22,7 +22,7 @@ const SingleClass = ({ singleClass }) => {
     console.log(bookings);
     axiosSecure.post('/bookings/class', bookings)
       .then(data => {
-        console.log(data.data);
+        console.log(data);
         if(data.data.message){
           Store.addNotification({
             title: `${data.data.message}`,

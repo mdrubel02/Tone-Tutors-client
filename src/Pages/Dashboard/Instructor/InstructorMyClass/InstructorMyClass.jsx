@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import SectionTitle from '../../../../Components/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { Store } from 'react-notifications-component';
+import Cookies from 'js-cookie';
 
 const InstructorMyClass = () => {
     const { user, loading } = useAuth()
@@ -13,7 +14,7 @@ const InstructorMyClass = () => {
     const [updateModal, setUpdateModal] = useState()
     const { data: InsMyClasses = [], refetch } = useQuery({
         queryKey: ['InsMyClasses', user?.email],
-        enabled: !loading,
+        enabled: !loading && !! user?.email && !!Cookies.get('access-token'),
         queryFn: async () => {
             const res = await axiosSecure.get(`/instructor/class/${user?.email}`);
             return res.data

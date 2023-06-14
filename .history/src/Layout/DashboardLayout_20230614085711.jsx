@@ -12,7 +12,6 @@ const DashboardLayout = () => {
     const { user } = useContext(AuthContext)
     const [isAdmin] = useAdmin()
     const [isInstructor] = useInstructors()
-    console.log(isInstructor, user?.email);
     return (
         <div>
             <Header />
@@ -34,7 +33,7 @@ const DashboardLayout = () => {
                                 </div>
                             </li>
                         }
-                        {isAdmin && (
+                        {(
                             <>
                                 <li><NavLink
                                     className={({ isActive }) => isActive ? "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
@@ -46,7 +45,7 @@ const DashboardLayout = () => {
                         )}
 
                         {
-                            !isAdmin &&  ! isInstructor && (<>
+                            (<>
                                 <li ><NavLink
                                     className={({ isActive }) => isActive ? "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
                                     to="/dashboard/selectClass"><FaUsers></FaUsers>My-Booking-Class</NavLink></li>
@@ -56,7 +55,7 @@ const DashboardLayout = () => {
                             </>)
                         }
                         {
-                            isInstructor && (<>
+                          (<>
                                 <li ><NavLink
                                     className={({ isActive }) => isActive ? "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
                                     to="/dashboard/addClasses"><FaUsers></FaUsers>Add-Classes</NavLink></li>

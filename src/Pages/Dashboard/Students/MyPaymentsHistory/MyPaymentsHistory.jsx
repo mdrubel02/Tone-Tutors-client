@@ -3,6 +3,7 @@ import useAxiosSecure from '../../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../../Hooks/useAuth';
 import { useTitle } from '../../../../Hooks/useTitle';
+import Cookies from 'js-cookie';
 
 const MyPaymentsHistory = () => {
     useTitle('Payment-History')
@@ -10,7 +11,7 @@ const MyPaymentsHistory = () => {
     const {user , loading} = useAuth();
     const {data: payments = [] , refetch} = useQuery({
         queryKey:['payments', user?.email],
-        enabled: !loading,
+        enabled: !loading && !! user?.email && !!Cookies.get('access-token'),
         queryFn: async () => {
             const res = await axiosSecure.get(`/payments/${user?.email}`);
             return res.data;

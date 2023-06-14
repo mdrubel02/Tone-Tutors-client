@@ -6,49 +6,49 @@ import { Store } from 'react-notifications-component';
 import useAdmin from '../../../../Hooks/useAdmin';
 
 const AllUsers = () => {
-    const [isAdmin] = useAdmin()
-    console.log(isAdmin);
-    const [axiosSecure] = useAxiosSecure();
-    console.log(axiosSecure);
-    const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await axiosSecure.get('/users')
-        return res.data;
-    })
-    console.log(users);
-    const handleMakeAdmin = async (user) => {
-        axiosSecure.patch(`/users/admin/${user._id}`)
-            .then(data => {
-                if (data.data.acknowledged) {
-                    refetch();
-                    Store.addNotification({
-                        title: `${user.name} is an Admin Now!`,
-                        type: "success",
-                        container: 'top-center',
-                        dismiss: {
-                            duration: 3000,
-                            onScreen: true
-                        }
-                    })
-                }
-            })
-    }
-    const handleMakeInstructor = user => {
-        axiosSecure.patch(`/users/instructor/${user._id}`)
-            .then(data => {
-                if (data.data.acknowledged) {
-                    refetch();
-                    Store.addNotification({
-                        title: `${user.name} is an Admin Now!`,
-                        type: "success",
-                        container: 'top-center',
-                        dismiss: {
-                            duration: 3000,
-                            onScreen: true
-                        }
-                    })
-                }
-            })
-    }
+    // const [isAdmin] = useAdmin()
+    // console.log(isAdmin);
+    // const [axiosSecure] = useAxiosSecure();
+    // console.log(axiosSecure);
+    // const { data: users = [], refetch } = useQuery(['users'], async () => {
+    //     const res = await axiosSecure.get('/users')
+    //     return res.data;
+    // })
+    // console.log(users);
+    // const handleMakeAdmin = async (user) => {
+    //     axiosSecure.patch(`/users/admin/${user._id}`)
+    //         .then(data => {
+    //             if (data.data.acknowledged) {
+    //                 refetch();
+    //                 Store.addNotification({
+    //                     title: `${user.name} is an Admin Now!`,
+    //                     type: "success",
+    //                     container: 'top-center',
+    //                     dismiss: {
+    //                         duration: 3000,
+    //                         onScreen: true
+    //                     }
+    //                 })
+    //             }
+    //         })
+    // }
+    // const handleMakeInstructor = user => {
+    //     axiosSecure.patch(`/users/instructor/${user._id}`)
+    //         .then(data => {
+    //             if (data.data.acknowledged) {
+    //                 refetch();
+    //                 Store.addNotification({
+    //                     title: `${user.name} is an Admin Now!`,
+    //                     type: "success",
+    //                     container: 'top-center',
+    //                     dismiss: {
+    //                         duration: 3000,
+    //                         onScreen: true
+    //                     }
+    //                 })
+    //             }
+    //         })
+    // }
 
     return (
         <div className="w-full">
@@ -66,7 +66,7 @@ const AllUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {/* {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
@@ -76,7 +76,7 @@ const AllUsers = () => {
                                 </td>
                                 <td><button disabled={user?.role === 'instructor'} onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white">Instructor</button></td>
                             </tr>)
-                        }
+                        } */}
 
 
                     </tbody>

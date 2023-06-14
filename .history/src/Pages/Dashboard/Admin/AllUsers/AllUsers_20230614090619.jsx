@@ -15,44 +15,44 @@ const AllUsers = () => {
         return res.data;
     })
     console.log(users);
-    const handleMakeAdmin = async (user) => {
-        axiosSecure.patch(`/users/admin/${user._id}`)
-            .then(data => {
-                if (data.data.acknowledged) {
-                    refetch();
-                    Store.addNotification({
-                        title: `${user.name} is an Admin Now!`,
-                        type: "success",
-                        container: 'top-center',
-                        dismiss: {
-                            duration: 3000,
-                            onScreen: true
-                        }
-                    })
-                }
-            })
-    }
-    const handleMakeInstructor = user => {
-        axiosSecure.patch(`/users/instructor/${user._id}`)
-            .then(data => {
-                if (data.data.acknowledged) {
-                    refetch();
-                    Store.addNotification({
-                        title: `${user.name} is an Admin Now!`,
-                        type: "success",
-                        container: 'top-center',
-                        dismiss: {
-                            duration: 3000,
-                            onScreen: true
-                        }
-                    })
-                }
-            })
-    }
+    // const handleMakeAdmin = async (user) => {
+    //     axiosSecure.patch(`/users/admin/${user._id}`)
+    //         .then(data => {
+    //             if (data.data.acknowledged) {
+    //                 refetch();
+    //                 Store.addNotification({
+    //                     title: `${user.name} is an Admin Now!`,
+    //                     type: "success",
+    //                     container: 'top-center',
+    //                     dismiss: {
+    //                         duration: 3000,
+    //                         onScreen: true
+    //                     }
+    //                 })
+    //             }
+    //         })
+    // }
+    // const handleMakeInstructor = user => {
+    //     axiosSecure.patch(`/users/instructor/${user._id}`)
+    //         .then(data => {
+    //             if (data.data.acknowledged) {
+    //                 refetch();
+    //                 Store.addNotification({
+    //                     title: `${user.name} is an Admin Now!`,
+    //                     type: "success",
+    //                     container: 'top-center',
+    //                     dismiss: {
+    //                         duration: 3000,
+    //                         onScreen: true
+    //                     }
+    //                 })
+    //             }
+    //         })
+    // }
 
     return (
         <div className="w-full">
-            <h3 className="text-3xl font-semibold my-4">Total Users:</h3>
+            <h3 className="text-3xl font-semibold my-4">Total Users: {users.length}</h3>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     <thead>
@@ -66,7 +66,7 @@ const AllUsers = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
+                        {/* {
                             users.map((user, index) => <tr key={user._id}>
                                 <th>{index + 1}</th>
                                 <td>{user.name}</td>
@@ -76,7 +76,7 @@ const AllUsers = () => {
                                 </td>
                                 <td><button disabled={user?.role === 'instructor'} onClick={() => handleMakeInstructor(user)} className="btn btn-ghost bg-orange-600  text-white">Instructor</button></td>
                             </tr>)
-                        }
+                        } */}
 
 
                     </tbody>

@@ -8,6 +8,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PUBLISHABLE_KEY)
 const Payments = () => {
     const bookingSelected = useLoaderData();
     const {price, instrument_name} = bookingSelected;
+    console.log(price);
     return (
         <div>
         <h3 className="text-3xl">Payment for {instrument_name}</h3>

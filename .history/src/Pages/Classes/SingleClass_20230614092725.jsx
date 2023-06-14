@@ -23,17 +23,6 @@ const SingleClass = ({ singleClass }) => {
     axiosSecure.post('/bookings/class', bookings)
       .then(data => {
         console.log(data.data);
-        if(data.data.message){
-          Store.addNotification({
-            title: `${data.data.message}`,
-            type: "warning",
-            container: 'top-center',
-            dismiss: {
-              duration: 3000,
-              onScreen: true
-            }
-          })
-        }
         if (data.data.acknowledged) {
           Store.addNotification({
             title: `successfully added your class`,

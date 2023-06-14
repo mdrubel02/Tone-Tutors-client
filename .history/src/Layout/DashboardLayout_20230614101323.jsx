@@ -46,7 +46,7 @@ const DashboardLayout = () => {
                         )}
 
                         {
-                            !isAdmin &&  ! isInstructor && (<>
+                            isAdmin ==! isInstructor && (<>
                                 <li ><NavLink
                                     className={({ isActive }) => isActive ? "font-bold transition-colors duration-100 text-primary " : "font-medium transition-colors duration-100"}
                                     to="/dashboard/selectClass"><FaUsers></FaUsers>My-Booking-Class</NavLink></li>
