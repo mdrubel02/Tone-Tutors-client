@@ -33,6 +33,9 @@ const BannerItem = ({ banner }) => {
                                     Take a look
 
                                 </Link>
+                                <div>
+                                    <img className='absolute ' src={topBallon} alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>

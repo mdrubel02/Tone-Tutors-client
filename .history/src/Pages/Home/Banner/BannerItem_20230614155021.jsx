@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import topBallon from '../../../assets/banner/top_screen_ballon_1.svg'
+import { FaCartPlus } from 'react-icons/fa';
 
 const BannerItem = ({ banner }) => {
     return (
-        <div id={`slide${banner.id}`} className="carousel-item relative w-full ">
+        <div id={`slide${banner.id}`} className="carousel-item relative w-full">
             <div className="relative w-full">
                 <img
                     src={banner.image}
@@ -27,9 +27,9 @@ const BannerItem = ({ banner }) => {
                                 <Link
                                     to="/categories"
                                     aria-label=""
-                                    className="inline-flex items-center font-semibold px-4 py-3 sm:px-6 sm:py-4 text-lg bg-secondary sm:text-xl my-5 rounded-lg "
+                                    className="inline-flex items-center font-semibold px-4 py-3 sm:px-6 sm:py-4 text-lg bg-primary sm:text-xl my-5 rounded-lg "
                                 >
-
+                                    
                                     Take a look
 
                                 </Link>

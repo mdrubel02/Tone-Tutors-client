@@ -37,6 +37,9 @@ const BannerItem = ({ banner }) => {
                         </div>
                     </div>
                 </div>
+                <div>
+                    <img className='absolute bottom-0 left-0 h-3 w-4' src={topBallon} alt="" />
+                </div>
             </div>
             <div className="absolute flex justify-center gap-2 transform -translate-y-1/2 left-5 right-5 bottom-0  ">
                 <a href={`#slide${banner.prev}`} className="btn btn-circle">❮</a>

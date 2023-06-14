@@ -29,12 +29,15 @@ const BannerItem = ({ banner }) => {
                                     aria-label=""
                                     className="inline-flex items-center font-semibold px-4 py-3 sm:px-6 sm:py-4 text-lg bg-secondary sm:text-xl my-5 rounded-lg "
                                 >
-
+                                    
                                     Take a look
 
                                 </Link>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                        <img className='absolute' src={topBallon} alt="" />
                     </div>
                 </div>
             </div>
