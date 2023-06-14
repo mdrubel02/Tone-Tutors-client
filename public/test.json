@@ -1,0 +1,35 @@
+
+    [
+      {
+        "name": "Emily",
+        "image": "  https://i.ibb.co/Q8GKsxW/images-1.jpg",
+        "age": 30
+      },
+      {
+        "name": "Jacob",
+        "image": "https://i.ibb.co/XyzJBRG/images-2.jpg",
+        "age": 28
+      },
+      {
+        "name": "Sophia",
+        "image": "https://i.ibb.co/G7dtZd1/images-3.jpg",
+        "age": 32
+      },
+      {
+        "name": "Ethan",
+        "image": "https://i.ibb.co/3FfS1YS/images.jpg",
+        "age": 29
+      },
+      {
+        "name": "Olivia",
+        "image": "https://i.ibb.co/pdL2XCX/istockphoto-1092432244-612x612.jpg",
+        "age": 31
+      },
+      {
+        "name": "Mason",
+        "image": "https://i.ibb.co/BVbx7yy/left-menu-img-6.jpg",
+        "age": 27
+      }
+    ]
+  
+

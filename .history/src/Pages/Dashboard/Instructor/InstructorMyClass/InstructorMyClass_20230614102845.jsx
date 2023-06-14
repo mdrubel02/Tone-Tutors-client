@@ -76,7 +76,7 @@ const InstructorMyClass = () => {
                                         <button className='btn btn-primary btn-sm bg-[#33CC33] border-0'>{insMyClass?.status}</button>
                                     )}
                                     {!['pending', 'approved'].includes(insMyClass?.status) && (
-                                        <p>Admin feedback: {insMyClass?.status}</p>
+                                        <p>Your Class Admin is deny: {insMyClass?.status}</p>
                                     )}
                                 </td>
                                 <td>

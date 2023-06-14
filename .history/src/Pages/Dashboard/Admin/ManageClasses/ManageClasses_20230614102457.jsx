@@ -101,7 +101,7 @@ const ManageClasses = () => {
                                 <div className='flex justify-end items-center'>
                                     <div className="modal-action">
                                         <a href="#" className="btn">Cancel</a>
-                                        <button className="btn btn-sm  text-white bg-primary mt-" type="submit"> Feedback </button>
+                                        <button className="btn btn-sm  text-white bg-primary mt-" type="submit"> Deny </button>
                                     </div>
                                 </div>
                             </div>

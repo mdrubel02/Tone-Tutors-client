@@ -1,0 +1,34 @@
+{
+    "children": [
+      {
+        "name": "Emily",
+        "image": "emily.jpg",
+        "age": 30
+      },
+      {
+        "name": "Jacob",
+        "image": "jacob.jpg",
+        "age": 28
+      },
+      {
+        "name": "Sophia",
+        "image": "sophia.jpg",
+        "age": 32
+      },
+      {
+        "name": "Ethan",
+        "image": "ethan.jpg",
+        "age": 29
+      },
+      {
+        "name": "Olivia",
+        "image": "olivia.jpg",
+        "age": 31
+      },
+      {
+        "name": "Mason",
+        "image": "mason.jpg",
+        "age": 27
+      }
+    ]
+  }
