@@ -148,7 +148,7 @@ const Header = () => {
                                                 className="inline-flex items-center"
                                             >
                                                 <span className="ml-2 text-xl font-bold tracking-wide text-gray-100">
-                                                    <span className='text-primary text-2xl'>Tones-Tuitors</span>
+                                                    Homemade<span className='text-yellow text-2xl'>Crunch</span>
                                                 </span>
                                             </Link>
                                         </div>

@@ -88,7 +88,7 @@ const Header = () => {
                     >
                         <img className='w-20' src="https://i.ibb.co/YyJS43b/4862745-01-removebg-preview.png" alt="logo" />
                         <span className="ml-2 text-xl font-bold tracking-wide text-gray-100">
-                            <span className='text-primary text-2xl'>Tones-Tuitors</span>
+                            Car<span className='text-yellow text-2xl'>Playground</span>
                         </span>
                     </Link>
                     <ul className="flex items-center hidden space-x-7 lg:flex capitalize">
@@ -148,7 +148,7 @@ const Header = () => {
                                                 className="inline-flex items-center"
                                             >
                                                 <span className="ml-2 text-xl font-bold tracking-wide text-gray-100">
-                                                    <span className='text-primary text-2xl'>Tones-Tuitors</span>
+                                                    Homemade<span className='text-yellow text-2xl'>Crunch</span>
                                                 </span>
                                             </Link>
                                         </div>
