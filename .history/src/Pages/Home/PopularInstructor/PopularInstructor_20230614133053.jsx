@@ -7,7 +7,7 @@ const PopularInstructor = () => {
     const { data: popularInstructor = [], refetch } = useQuery({
         queryKey: ['popularInstructor'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/popular/instructor');
+            const res = await fetch('https://tone-tuitors-server.vercel.app/popular/instructor');
             const data = await res.json();
             return data;
         }

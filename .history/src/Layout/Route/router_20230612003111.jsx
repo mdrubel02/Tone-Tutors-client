@@ -40,7 +40,7 @@ const router = createBrowserRouter([{
         { path: '/dashboard/myPaymentHistory', element: <MyPaymentsHistory /> },
         { path: '/dashboard/addClasses', element: <AddClasses /> },
         { path: '/dashboard/payments/:id', element: <Payments/> ,
-        loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+        loader: ({params}) => fetch(`https://tone-tuitors-server.vercel.app/bookings/${params.id}`)
     },
     ]
 }
