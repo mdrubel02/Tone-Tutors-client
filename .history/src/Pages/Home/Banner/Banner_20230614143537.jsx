@@ -1,7 +1,6 @@
 import React from 'react';
 import banner01 from '../../../assets/banner/banner.jpg'
 import BannerItem from './BannerItem';
-import './Banner.css'
 
 const Banner = () => {
     const bannerData = [
